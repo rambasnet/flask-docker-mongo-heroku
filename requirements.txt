@@ -1,0 +1,11 @@
+pytest
+jupyter
+pymongo[srv]
+mypy
+hypothesis
+flake8
+autopep8
+lxml
+requests
+Flask
+gunicorn
