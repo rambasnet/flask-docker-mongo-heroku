@@ -2,5 +2,6 @@ pytest
 mypy
 flake8
 hypothesis
+requests
 types-requests
 types-flask
