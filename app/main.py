@@ -4,14 +4,14 @@ This is the main file of the Flask application.
 
 from typing import Any
 import os
-from flask import Flask, render_template  # type: ignore
+from flask import Flask, render_template
 
 
 app = Flask(__name__)
 
 
 @app.route('/')
-def home() -> Any:
+def home() -> Any: 
     """Home page of the application.
 
     Returns:

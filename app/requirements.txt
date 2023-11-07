@@ -2,3 +2,5 @@ pymongo[srv]
 requests
 Flask
 gunicorn
+types-requests
+types-flask
