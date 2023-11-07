@@ -42,10 +42,6 @@ ENV KATTIS_CLI="${HOME}/kattis-cli"
 # install heroku-cli
 RUN curl https://cli-assets.heroku.com/install.sh | sh
 
-# install docker
-RUN curl -sSL https://get.docker.com | sh
-RUN usermod -aG docker ${USER}
-
 USER user
 
 CMD zsh
