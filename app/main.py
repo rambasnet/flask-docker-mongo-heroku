@@ -2,15 +2,16 @@
 This is the main file of the Flask application.
 """
 
+from typing import Any
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template # type: ignore
 
 
 app = Flask(__name__)
 
 
 @app.route('/')
-def home() -> str:
+def home() -> Any:
     """Home page of the application.
 
     Returns:
