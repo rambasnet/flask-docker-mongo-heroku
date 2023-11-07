@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def home() -> Any: 
+def home() -> Any:
     """Home page of the application.
 
     Returns:
