@@ -7,5 +7,4 @@ requests
 types-requests
 types-flask
 vcrpy
-types-vcrpy
 pyyaml

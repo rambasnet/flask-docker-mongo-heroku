@@ -10,3 +10,4 @@ requests
 Flask
 gunicorn
 types-requests
+vcrpy
