@@ -69,7 +69,7 @@ def my_decorator(func: F) -> F:
     return cast(F, wrapper)
 
 
-@my_decorator(vcr.use_cassette())
+@my_decorator(vcr.use_cassette)
 def test_find_one_using_vcr() -> None:
     """Mocking with VCR.
         Creates a cassette (yaml) with the response from the API.
