@@ -1,0 +1,60 @@
+interactions:
+- request:
+    body: '{"collection": "spanish", "database": "recipe", "dataSource": "Cluster0",
+      "filter": {"name": "Spanish Omelet"}}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Access-Control-Request-Headers:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '111'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.31.0
+      api-key:
+      - sZSPFtn4h57mJ52S0h9XWzTKJATvieufXuzvgaZBpgL4ybha1vmw6HHksEAzREbi
+    method: POST
+    uri: https://us-west-2.aws.data.mongodb-api.com/app/data-whziv/endpoint/data/v1/action/findOne
+  response:
+    body:
+      string: '{"document":{"_id":"654a5f2747edda662890b802","name":"Spanish Omelet","ingredients":["egg","potato","onion","olive
+        oil","salt"],"steps":["Peel and slice the potatoes into thin round pieces.","Peel
+        and slice the onion into thin pieces.","Heat the olive oil in a pan.","Add
+        the potatoes and onion to the pan and                 cook for 20 minutes
+        on medium heat.","Beat the eggs in a large bowl and add salt.","Add the cooked
+        potatoes and onion to the bowl and mix well.","Heat a pan with a little olive
+        oil and add the mixture.","Cook for 5 minutes on one side and then flip it                 over
+        and cook for another 5 minutes."],"image":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/            Tortilla_de_patata_-_San_Sebasti%C3%A1n.jpg/                440px-Tortilla_de_patata_-_San_Sebasti%C3%A1n.jpg","prep_time":30,"cook_time":20,"servings":4,"tags":["spanish","omelet","potato","egg","onion"]}}'
+    headers:
+      content-encoding:
+      - gzip
+      content-length:
+      - '479'
+      content-type:
+      - application/json
+      date:
+      - Wed, 08 Nov 2023 01:42:53 GMT
+      server:
+      - mdbws
+      strict-transport-security:
+      - max-age=31536000; includeSubdomains;
+      vary:
+      - Origin
+      x-appservices-request-id:
+      - 654ae79c369f00b9b916d0e6
+      x-envoy-decorator-operation:
+      - baas-main.baas-prod.svc.cluster.local:8086/*
+      x-envoy-upstream-service-time:
+      - '985'
+      x-frame-options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+version: 1

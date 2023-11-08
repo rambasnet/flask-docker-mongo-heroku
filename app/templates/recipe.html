@@ -1,0 +1,42 @@
+{% extends 'base_two_col.html' %} {% block title %}{{ title }}{% endblock %} {%
+block column1 %}
+<div class="card" style="width: 18rem">
+  <img class="card-img-top" src=" {{ recipe.image }}" alt="Image Receipe" />
+  <div class="card-body">
+    <h5 class="card-title">{{ recipe.name }}</h5>
+    <p class="card-text">
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+{% endblock %} {% block column2 %}
+<h1>{{ recipe.name }}</h1>
+<h2>Ingredients</h2>
+<h3>
+  <ul>
+    {% if recipe.ingredients %} {% for ingredient in recipe.ingredients %}
+    <li>{{ ingredient }}</li>
+    {% endfor %} {% else %}
+    <li>None</li>
+    {% endif %}
+  </ul>
+</h3>
+<h2>Prep Time: {{ recipe.prep_time }}</h2>
+<h2>Cook Time: {{ recipe.cook_time }}</h2>
+<h2>Directions</h2>
+<h3>
+  <ol>
+    {% for direction in recipe.directions %}
+    <li>{{ direction }}</li>
+    {% endfor %}
+  </ol>
+</h3>
+<a href="/update/{{ recipe._id }}" class="btn btn-primary">
+  Update This Recipe
+</a>
+<a href="/delete/{{ recipe._id }}" class="btn btn-primary">
+  Delete This Recipe
+</a>
+{% endblock %}

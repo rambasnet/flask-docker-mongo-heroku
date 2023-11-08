@@ -1,0 +1,37 @@
+{% extends 'base_two_col.html' %} {% block content %}
+<div class="col-md-8">
+  <h1>{{ title }}</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Image</th>
+        <th scope="col"># Ingredients</th>
+        <th scope="col">Prep Time</th>
+        <th scope="col">Cook Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if recipes %} {% for recipe in recipes %}
+      <tr>
+        <th scope="row">{{ loop.index }}</th>
+        <td><a href="recipe/{{ recipe._id }}"> {{ recipe.name }} </a></td>
+        <td><img src="{{ recipe.image }}" alt="Food Image" height="60px" /></td>
+        {% if recipe.ingredients %}
+        <td>{{ recipe.ingredients|length }}</td>
+        {% else %}
+        <td>0</td>
+        {% endif %}
+        <td>{{ recipe.prep_time }}</td>
+        <td>{{ recipe.cook_time }}</td>
+      </tr>
+      {% endfor %} {% else %}
+      <tr>
+        <td>No Recipes Found</td>
+      </tr>
+      {% endif %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
