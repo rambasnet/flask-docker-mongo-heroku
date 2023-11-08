@@ -6,11 +6,10 @@ from typing import Any
 import os
 from flask import Flask, render_template
 import db_api
-from flask import redirect, request
+from flask import request
 import forms
 
 app = Flask(__name__)
-
 
 
 @app.route('/')
@@ -57,7 +56,7 @@ def single_recipe(recipe_id: str) -> Any:
         'title': 'Spanish Recipes',
         'recipe': None
     }
-    if recipe_id != '...': # this is a bizzare workaround! 
+    if recipe_id != '...':  # this is a bizzare workaround!
         # Not sure why it makes GET /recipe/... request automatically
         doc = db_api.find_one({'_id': {"$oid": recipe_id}})
         # print(f'{doc=}')
@@ -78,11 +77,16 @@ def update_recipe(recipe_id: str) -> Any:
         str: HTML page using Jinja2 template.
     """
     form = forms.RecipeEditForm(request.form)
-    #print('form', form)
+    # print('form', form)
     where = {'_id': {"$oid": recipe_id}}
     recipe = db_api.find_one(where)['document']
-    context = {'error': "", 'success': "", 'title': 'Spanish Recipes', 'recipe': recipe, 'form': form}
-    if request.method == 'POST':
+    context = {
+        'error': "",
+        'success': "",
+        'title': 'Spanish Recipes',
+        'recipe': recipe,
+        'form': form}
+    if request.method == 'POST' and form.validate():
         ingredients = form.ingredients.data.strip().split(',')
         update = {
             '$set': {
@@ -94,7 +98,7 @@ def update_recipe(recipe_id: str) -> Any:
                 'steps': form.steps.data.strip()
             }
         }
-        #print(f'{update=}')
+        # print(f'{update=}')
         result = db_api.update_one(where, update)
         if result['modifiedCount'] == 1:
             success = f"Recipe {recipe['name']} updated successfully"
@@ -102,12 +106,12 @@ def update_recipe(recipe_id: str) -> Any:
             recipe = db_api.find_one(where)['document']
             recipe['ingredients'] = ', '.join(recipe.get('ingredients', []))
             context['recipe'] = recipe
-            #print(recipe)
+            # print(recipe)
     else:
         context['error'] = form.errors
         recipe['ingredients'] = ', '.join(recipe.get('ingredients', []))
-    #print('errors', form.errors)
-    #print('validate', form.validate())
+    # print('errors', form.errors)
+    # print('validate', form.validate())
     return render_template('update.html', **context)
 
 
@@ -127,7 +131,7 @@ def delete_recipe(recipe_id: str) -> Any:
         message = f"Recipe {recipe_id} deleted successfully"
     context = {'message': message, 'title': 'Spanish Recipes'}
     return render_template('message.html', **context)
-    
+
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5555))

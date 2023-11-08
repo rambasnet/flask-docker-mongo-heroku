@@ -1,6 +1,7 @@
 """ This file contains the forms for the application. """
 
-from wtforms import Form, StringField, IntegerField, validators, TextAreaField, URLField
+from wtforms import Form, StringField, IntegerField, \
+    validators, TextAreaField, URLField
 
 
 class RecipeEditForm(Form):

@@ -1,7 +1,11 @@
 pytest
+pytest-mock
 mypy
 flake8
 hypothesis
 requests
 types-requests
 types-flask
+vcrpy
+types-vcrpy
+pyyaml

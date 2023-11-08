@@ -26,6 +26,11 @@ clean:
 	rm -rf .pytest_cache
 	rm -rf .mypy_cache
 	rm -rf .hypothesis
+	rm -rf .coverage
+	rm -rf app/__pycache__
+	rm -rf app/.pytest_cache
+	rm -rf app/tests/__pycache__
+	rm -rf app/tests/.pytest_cache
 
 
 .PHONY: push
