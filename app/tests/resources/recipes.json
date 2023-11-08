@@ -159,6 +159,51 @@
             ],
             "prep_time": 10,
             "difficulty": "easy"
+        },
+        {
+            "name": "Spanish scrambled eggs",
+            "ingredients": [
+                "eggs",
+                "onion",
+                "potatoes"
+            ],
+            "steps": [
+                "step 1",
+                "step 2",
+                "step 3"
+            ],
+            "prep_time": 10,
+            "difficulty": "easy"
+        },
+        {
+            "name": "Spanish boiled eggs",
+            "ingredients": [
+                "eggs",
+                "onion",
+                "potatoes"
+            ],
+            "steps": [
+                "step 1",
+                "step 2",
+                "step 3"
+            ],
+            "prep_time": 15,
+            "difficulty": "easy"
+        },
+        {
+            "name": "Spanish sunny side up eggs",
+            "ingredients": [
+                "eggs",
+                "onion",
+                "potatoes"
+            ],
+            "steps": [
+                "step 1",
+                "step 2",
+                "step 3"
+            ],
+            "prep_time": 10,
+            "difficulty": "easy"
         }
     ]
 }

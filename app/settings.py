@@ -8,8 +8,8 @@ DATA_SOURCE = 'Cluster0'
 DB_NAME = 'recipe'
 COLLECTION = 'spanish'
 HEADERS = {'Content-Type': 'application/json',
-                     'Access-Control-Request-Headers': '*',
-                     'api-key': f'{API_KEY}'}
+           'Access-Control-Request-Headers': '*',
+           'api-key': f'{API_KEY}'}
 
 PAYLOAD = {
     "collection": COLLECTION,

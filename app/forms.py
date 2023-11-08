@@ -4,7 +4,7 @@ from wtforms import Form, StringField, IntegerField, \
     validators, TextAreaField, URLField
 
 
-class RecipeEditForm(Form):
+class RecipeEditForm(Form):  # type: ignore
     """Recipe editor form for the application.
     Args:
         Form (_type_): WTForms class.
