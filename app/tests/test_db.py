@@ -3,7 +3,7 @@ Example adapted from:
 https://github.com/miguendes/tutorials/blob/master/testing_http/tests/test_weather_app.py
 """
 
-from typing import Dict, Any, Callable, TypeVar, cast, Tuple
+from typing import Dict, Any
 import json
 from http import HTTPStatus
 import pytest
@@ -48,28 +48,7 @@ def test_find_one(mocker: Any, fake_mongo_db: Dict[str, Any]) -> None:
     assert recipe['name'] == 'Spanish Omelet'
 
 
-# https://stackoverflow.com/questions/65621789/mypy-untyped-decorator-makes-function-my-method-untyped
-F = TypeVar('F', bound=Callable[..., Any])
-
-# A decorator that preserves the signature.
-
-
-def my_decorator(func: F) -> F:
-    """Decorator to preserve the signature of the function.
-
-    Args:
-        func (F): Function to decorate.
-
-    Returns:
-        F: Decorated function.
-    """
-    def wrapper(*args: Tuple[Any, ...], **kwargs: Dict[Any, Any]) -> Any:
-        # print("Calling", func)
-        return func(*args, **kwargs)
-    return cast(F, wrapper)
-
-
-@my_decorator(vcr.use_cassette)
+@vcr.use_cassette()
 def test_find_one_using_vcr() -> None:
     """Mocking with VCR.
         Creates a cassette (yaml) with the response from the API.
