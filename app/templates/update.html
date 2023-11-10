@@ -1,13 +1,21 @@
 {% extends 'base_two_col.html' %} {% block title %}{{ title }}{% endblock %} {%
 block content %}
 <h1>Update Recipe</h1>
-{% if error %}
-<div class="alert alert-danger" role="alert">{{ error }}</div>
-{% endif %} {% if success %}
+
+{% if success %}
 <div class="alert alert-success" role="alert">{{ success }}</div>
+{% endif %} {% if form.errors %}
+<ul class="list-group list-group-flush">
+  {% for error in form.errors %}
+  <li class="list-group-item list-group-item-danger" role="alert">
+    {{ error }}: {{ ', '.join(form.errors[error]) }}
+  </li>
+  {% endfor %}
+</ul>
 {% endif %}
 <div>
   <form method="post">
+    {{ form.csrf_token }}
     <div class="form-group">
       <input type="hidden" name="_id" value="{{ recipe._id }}" />
       <label for="name">Recipe Name</label>

@@ -1,10 +1,11 @@
 """ This file contains the forms for the application. """
 
-from wtforms import Form, StringField, IntegerField, \
+from flask_wtf import FlaskForm
+from wtforms import StringField, IntegerField, \
     validators, TextAreaField, URLField
 
 
-class RecipeEditForm(Form):  # type: ignore
+class RecipeEditForm(FlaskForm):  # type: ignore
     """Recipe editor form for the application.
     Args:
         Form (_type_): WTForms class.

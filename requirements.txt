@@ -11,3 +11,5 @@ Flask
 gunicorn
 types-requests
 vcrpy
+pytest-mock
+Flask-WTF

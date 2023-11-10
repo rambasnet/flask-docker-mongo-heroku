@@ -10,6 +10,8 @@ from flask import request
 import forms
 
 app = Flask(__name__)
+app.secret_key = 'b720367a8089e1e1b15ba89252ce07'
+app.secret_key += 'b8393320dad043d609c01366a6cfe7946e'
 
 
 @app.route('/')
@@ -85,9 +87,11 @@ def update_recipe(recipe_id: str) -> Any:
         'success': "",
         'title': 'Spanish Recipes',
         'recipe': recipe,
-        'form': form}
+        'form': form
+    }
     if request.method == 'POST' and form.validate():
-        ingredients = form.ingredients.data.strip().split(',')
+        ingredients = [ing.strip()
+                       for ing in form.ingredients.data.strip().split(',')]
         update = {
             '$set': {
                 'name': form.name.data.strip(),
@@ -104,12 +108,10 @@ def update_recipe(recipe_id: str) -> Any:
             success = f"Recipe {recipe['name']} updated successfully"
             context['success'] = success
             recipe = db_api.find_one(where)['document']
-            recipe['ingredients'] = ', '.join(recipe.get('ingredients', []))
             context['recipe'] = recipe
             # print(recipe)
-    else:
-        context['error'] = form.errors
-        recipe['ingredients'] = ', '.join(recipe.get('ingredients', []))
+
+    recipe['ingredients'] = ', '.join(recipe.get('ingredients', []))
     # print('errors', form.errors)
     # print('validate', form.validate())
     return render_template('update.html', **context)

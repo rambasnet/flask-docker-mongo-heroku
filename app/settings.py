@@ -3,7 +3,7 @@
 
 END_POINT = 'https://us-west-2.aws.data.mongodb-api.com/app/'
 END_POINT += 'data-whziv/endpoint/data/v1/action'
-API_KEY = 'FIXME- MONGO DB YOUR API KEY HERE'
+API_KEY = 'FIXME - add your API key here'
 DATA_SOURCE = 'Cluster0'
 DB_NAME = 'recipe'
 COLLECTION = 'spanish'
