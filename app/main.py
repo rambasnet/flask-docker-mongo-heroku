@@ -5,9 +5,9 @@ This is the main file of the Flask application.
 from typing import Any
 import os
 from flask import Flask, render_template
-import db_api
 from flask import request
-import forms
+from . import forms
+from . import db_api
 
 app = Flask(__name__)
 app.secret_key = 'b720367a8089e1e1b15ba89252ce07'

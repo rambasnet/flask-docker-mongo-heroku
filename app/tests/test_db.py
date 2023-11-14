@@ -8,9 +8,9 @@ import json
 from http import HTTPStatus
 import pytest
 import vcr
-from db_api import insert_one
-from db_api import insert_many
-from db_api import find_one
+from app.db_api import insert_one
+from app.db_api import insert_many
+from app.db_api import find_one
 
 
 @pytest.fixture()

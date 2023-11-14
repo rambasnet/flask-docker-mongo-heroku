@@ -4,7 +4,7 @@ MongoDB database APIs.
 import copy
 from typing import Dict, List, Any
 import requests
-import settings
+from . import settings
 
 
 def create_session() -> requests.Session:
