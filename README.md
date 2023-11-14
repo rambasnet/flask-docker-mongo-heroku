@@ -16,7 +16,6 @@
 - by default port 5000 is used, but is not mapped to the host machine
 - use gunicorn to run the app in production or locally with port 5555
 ```bash
-cd app
 flask --app app.main.py --debug run -h 0.0.0.0 -p 5555
 gunicorn --workers=2 app.main:app -b 0.0.0.0:5555
 ```
